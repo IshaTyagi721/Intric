@@ -50,8 +50,8 @@ const userSchema = new mongoose.Schema({
 })
 
 //We're telling Mongoose to map the _id (local field) for each user to 
-//the owner (foreign field) in each task. Now when we fetch the user, we can also fetch all of their tasks.
-//its more like a primary key and foreign key in SQL ,_id in user is the primary key and its referenced in task where it acts as a foreign key
+//the owner (foreign field) in each article. Now when we fetch the user, we can also fetch all of their articles.
+//its more like a primary key and foreign key in SQL ,_id in user is the primary key and its referenced in article where it acts as a foreign key
 userSchema.virtual('Article', {
     ref: 'Article',
     localField: '_id',
