@@ -1,19 +1,24 @@
-// const mongoose = require('mongoose')
-// const validator = require('validator')
+const mongoose = require('mongoose')
+const validator = require('validator')
 
-// const Comment = mongoose.model('Comment', {
-// 	comment: { 
-//         type: String 
-//     },
-//     date: {
-//         type: Date, 
-//         default: Date.now
-//     },    
-//     owner : {
-//         type : mongoose.Schema.Types.ObjectId,
-//         required : true,
-//         ref : 'User'
-//     }
-// })
+const CommentSchema = new mongoose.Schema({
+	comment: { 
+        type: String 
+    },
+    date: {
+        type: Date, 
+        default: Date.now
+    },    
+    owner : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'User'
+    },
+    article : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Article'
+    }
+})
 
-// module.exports = Comment
+ const Comment = mongoose.model('Comment', CommentSchema)
+
+ module.exports = Comment
