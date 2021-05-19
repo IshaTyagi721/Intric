@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-const Article = mongoose.model('Article', {
+const articleSchema = new mongoose.Schema({    
     title: { 
         type: String 
     },
@@ -23,9 +23,23 @@ const Article = mongoose.model('Article', {
     },
     owner : {
         type : mongoose.Schema.Types.ObjectId,
-        required : true,
+        // required : true,
         ref : 'User'
+    },
+    comment: {
+        comment: {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Comment'
+        }
     }
 })
+
+articleSchema.virtual('comments', {
+    ref: 'Comment',
+    localField: '_id',
+    foreignField: 'article'
+})
+
+const Article = mongoose.model('Article', articleSchema)
 
 module.exports = Article
