@@ -13,6 +13,13 @@ const articleSchema = new mongoose.Schema({
         trim : true,
         required : true
     },
+    photo: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Image'
+    },
+
+
     date: {
         type: Date, 
         default: Date.now
