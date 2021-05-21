@@ -35,5 +35,5 @@ const articleSchema = new mongoose.Schema({
 articleSchema.virtual('url').get(function(){
     return '/articles/' + this._id
  })
-
+//Testing
 module.exports = mongoose.model('Article', articleSchema);
