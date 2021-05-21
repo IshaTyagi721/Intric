@@ -3,6 +3,17 @@ const Article = require('../models/article')
 const router = express.Router()
 const auth = require('../middleware/auth')
 
+router.get('/articles/all', (req, res) => {
+    Article.find({}).then(article => {
+        if(!article){
+            res.status(404).send(); 
+        }
+        res.send(article);
+    }).catch((e) => {
+        res.status(400).send(e); 
+    });
+});
+
 router.post('/articles', auth, async (req, res) => {
     const article = new Article({
         ...req.body,
