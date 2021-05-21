@@ -31,7 +31,7 @@ const articleSchema = new mongoose.Schema({
         ref: 'Comment'
       }]
 })
-
+//New format of virtual
 articleSchema.virtual('url').get(function(){
     return '/articles/' + this._id
  })
