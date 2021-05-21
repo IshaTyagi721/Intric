@@ -3,6 +3,17 @@ const Article = require('../models/article')
 const router = express.Router()
 const auth = require('../middleware/auth')
 
+router.get('/articles/all', (req, res) => {
+    Article.find({}).then(article => {
+        if(!article){
+            res.status(404).send(); 
+        }
+        res.send(article);
+    }).catch((e) => {
+        res.status(400).send(e); 
+    });
+});
+
 router.post('/articles', auth, async (req, res) => {
     const article = new Article({
         ...req.body,
@@ -22,16 +33,6 @@ router.get('/articles', auth, async (req, res) => {
         res.send(req.user.articles)
     } catch (e) {
         res.status(500).send(e)
-    }
-})
-
-router.get('/articles', async(req, res) => {
-    try {
-        const articles = Article.find({})
-        res.send(articles)
-    } catch (e) {
-        console.log(e)
-        res.send(e)
     }
 })
 
