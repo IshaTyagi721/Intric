@@ -11,7 +11,12 @@ const articleSchema = new mongoose.Schema({
     Content : {
         type : String,
         trim : true,
-        required : true
+        // required : true
+    },
+
+    image:{
+            type: String,
+
     },
     date: {
         type: Date, 

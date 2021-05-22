@@ -2,6 +2,38 @@ const express = require('express')
 const Article = require('../models/article')
 const router = express.Router()
 const auth = require('../middleware/auth')
+const multer = require('multer')
+const storage = multer.diskStorage({
+        destination:function(req,file,cb){
+                cb(null,'./uploads/');
+
+        },
+        filename: function(req,file,cb){
+
+                cb(null,new Date().toISOString().replace(/:/g, "-") + "-" + file.originalname );
+        }
+
+})
+
+
+const fileFilter = (req,file,cb) =>{
+        //accept or reject a file
+        if(file.mimetype === 'image/jpeg' || file.mimetype === 'image/png'){
+                cb(null,true)
+        }
+        else{
+                cb(new Error('This file type is not supported. Please use .PNG or .JPEG files.'),false)
+        }
+}
+const upload = multer(
+        {
+        storage: storage,
+        limits:{
+                fileSize: 1024*1024*5 
+},
+fileFilter: fileFilter
+})
+
 
 router.get('/articles/all', (req, res) => {
     Article.find({}).then(article => {
@@ -14,10 +46,15 @@ router.get('/articles/all', (req, res) => {
     });
 });
 
-router.post('/articles', auth, async (req, res) => {
+//'uploads/' + req.file.filename
+
+router.post('/articles', auth, upload.single('image'),async (req, res) => {
+        
     const article = new Article({
         ...req.body,
-        owner : req.user._id
+        image: req.file.path,
+        owner :  req.user._id
+         
     })
     try {
         await article.save()
