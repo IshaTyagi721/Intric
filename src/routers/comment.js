@@ -54,4 +54,27 @@ res.status(201).send(comment)
 
 })
 
+// router.delete("/comments/:postId/:commentId", async function (req, res) {
+//    try {
+//      const post = await Post.findByIdAndUpdate(
+//        req.params.postId,
+//        {
+//          $pull: { comments: req.params.commentId },
+//        },
+//        { new: true }
+//      );
+ 
+//      if (!post) {
+//        return res.status(400).send("Post not found");
+//      }
+ 
+//      await Comment.findByIdAndDelete(req.params.commentId);
+ 
+//      res.send("Success");
+//    } catch (err) {
+//      console.log(err);
+//      res.status(500).send("Something went wrong");
+//    }
+//  });
+
 module.exports = router 
