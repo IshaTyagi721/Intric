@@ -186,6 +186,38 @@ a {
 .card{
 
     float:left;
-    margin:10px;
+    margin:20px max(2% , 10px);
+    width: 18rem;
+    /* max-height: 25.5rem; */
+    
+}
 
+.card-img-top{
+
+    height: 13.5rem;
+    object-fit: cover;
+
+}
+
+.invis{
+    visibility: collapse;
+    overflow-y:hidden;
+    height: 0;
+}
+
+.vis{
+    visibility: visible;
+}
+
+.customContainer{
+    min-height: -webkit-fill-available;
+    overflow-y:auto
+}
+
+.welcome-message{
+    margin-left:58rem;
+}
+
+.maxcon{
+    width: max-content;
 }

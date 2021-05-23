@@ -27,12 +27,35 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const linkColor = document.querySelectorAll('.nav_link')
     
     function colorLink(){
-    if(linkColor){
-    linkColor.forEach(l=> l.classList.remove('active'))
-    this.classList.add('active')
-    }
+        if(linkColor){
+            linkColor.forEach(l=> l.classList.remove('active'))
+            this.classList.add('active')  
+            
+            // MAKE THE CURRENT TAB VISIBLE VS MAKE IT UNVISIBLE
+
+            // dashboard
+            // notifications
+            // user
+            // bookmark
+            
+            document.getElementsByClassName("dashboard")[0].classList.add("invis")
+            document.getElementsByClassName("notifications")[0].classList.add("invis")
+            document.getElementsByClassName("user")[0].classList.add("invis")
+            document.getElementsByClassName("bookmark")[0].classList.add("invis")
+
+            document.getElementsByClassName(this.id)[0].classList.remove("invis")
+            
+            
+
+
+
+
+        }
     }
     linkColor.forEach(l=> l.addEventListener('click', colorLink))
     
     // Your code to run since DOM is loaded and ready
     });
+
+
+    
