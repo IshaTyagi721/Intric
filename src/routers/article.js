@@ -70,11 +70,17 @@ router.post('/articles', auth,async (req, res) => {
     }
 })
 
-router.post('/articles/images',upload.single('image'), auth,async (req, res) => {
+
+// var cpUpload = upload.fields([{ name: 'image', maxCount: 1 }, { name: 'images', maxCount: 8 }])
+
+router.post('/articles/images', upload.any(), auth,async (req, res) => {
         
     const article = new Article({
         ...req.body,
-        image:  req.file.path ,
+        image1: req.files[0] && req.files[0].path ? req.files[0].path : '' ,
+        image2: req.files[1] && req.files[1].path ? req.files[1].path : '' ,
+        image3: req.files[2] && req.files[2].path ? req.files[2].path : '' ,
+        image4: req.files[3] && req.files[3].path ? req.files[3].path : '' ,
         owner :  req.user._id
          
     })

@@ -14,11 +14,23 @@ const articleSchema = new mongoose.Schema({
         // required : true
     },
 
-    image:[{
+    image1:{
         type: String
 
     
-    }],
+    },
+
+    image2:{
+            type: String
+    },
+
+    image3:{
+        type: String
+    },
+    image4S:{
+        type: String
+    },
+
     date: {
         type: Date, 
         default: Date.now
