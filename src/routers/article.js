@@ -27,6 +27,7 @@ const fileFilter = (req,file,cb) =>{
 
 }
 
+
 const upload = multer({
         storage: storage,
         limits: {
@@ -71,7 +72,7 @@ router.post('/articles', auth,async (req, res) => {
 })
 
 
-// var cpUpload = upload.fields([{ name: 'image', maxCount: 1 }, { name: 'images', maxCount: 8 }])
+
 
 router.post('/articles/images', upload.any(), auth,async (req, res) => {
         
@@ -85,7 +86,7 @@ router.post('/articles/images', upload.any(), auth,async (req, res) => {
          
     })
     try {
-        // article.image.push(req.files.path)
+
         await article.save()        
         res.status(201).send(article)
     } catch (e) {
