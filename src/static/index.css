@@ -221,3 +221,11 @@ a {
 .maxcon{
     width: max-content;
 }
+
+.upper-half{
+    text-align: center;
+}
+
+.name{
+    padding-top:10px;
+}
