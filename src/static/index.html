@@ -380,14 +380,29 @@
       </div>
       <!-- PERSON PROFILE ENDING -->
 
+      <!-- Image showing part beginning -->
       <div class="notifications invis">
-        <!-- Image showing part beginning -->
         <div class="container mt-3 w-100">
           <h4 style="margin-bottom: 10px">Your creative work goes here!</h4>
-          <form action="">
+          <form action="" id="new_post">
+            <input
+              name=""
+              id="title"
+              cols="100"
+              rows="2"
+              placeholder="Title"
+              required
+              style="
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+                border-radius: 25pxs;
+              "
+            ></input>
             <textarea
               name=""
-              id="text_input"
+              id="content"
               cols="100"
               rows="2"
               placeholder="Whats on your mind"
@@ -411,7 +426,8 @@
               "
             />
             <label for="Image_check">Contains images</label>
-          </form>
+
+        </form>
 
           <div class="card shadow-sm w-100" id="img_div" style="display: none">
             <div class="card-header d-flex justify-content-between">
@@ -444,20 +460,8 @@
             </div>
           </div>
           <!-- Image showing part ending -->
-
-          <input
-            type="text"
-            name="caption"
-            id="caption"
-            placeholder="Description..."
-            style="
-              margin-left: 535px;
-              margin-right: auto;
-              margin-top: 20px;
-              border-radius: 15pxs;
-            "
-          />
-          <button
+            <button 
+            id="new_post_btn"
             class="btn btn-sm btn-primary"
             type="button"
             style="
@@ -469,6 +473,7 @@
           >
             Post!
           </button>
+          
         </div>
       </div>
 
