@@ -51,7 +51,7 @@ registration_from.addEventListener("submit", (e) => {
   })
     .then(async (res) => {
       const data = await res.json();
-      save_token(data.token);
+      save_token(data.token, data.user.name);
     })
     .catch((e) => {
       console.log(e);
@@ -82,14 +82,15 @@ login_form.addEventListener("submit", (e) => {
   })
     .then(async (res) => {
       const data = await res.json();
-      save_token(data.token);
+      save_token(data.token, data.user.name);
     })
     .catch((e) => {
       console.log(e);
     });
 });
 
-function save_token(token) {
+function save_token(token, name) {
   window.localStorage.setItem("token", token);
+  window.localStorage.setItem("name", name);
   window.location.pathname = "/src/static/index.html";
 }

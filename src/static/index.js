@@ -1,61 +1,62 @@
-document.addEventListener("DOMContentLoaded", function(event) {
-
-    const showNavbar = (toggleId, navId, bodyId, headerId) =>{
+document.addEventListener("DOMContentLoaded", function (event) {
+  const showNavbar = (toggleId, navId, bodyId, headerId) => {
     const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId),
-    bodypd = document.getElementById(bodyId),
-    headerpd = document.getElementById(headerId)
-    
+      nav = document.getElementById(navId),
+      bodypd = document.getElementById(bodyId),
+      headerpd = document.getElementById(headerId);
+
     // Validate that all variables exist
-    if(toggle && nav && bodypd && headerpd){
-    toggle.addEventListener('click', ()=>{
-    // show navbar
-    nav.classList.toggle('show')
-    // change icon
-    toggle.classList.toggle('bx-x')
-    // add padding to body
-    bodypd.classList.toggle('body-pd')
-    // add padding to header
-    headerpd.classList.toggle('body-pd')
-    })
+    if (toggle && nav && bodypd && headerpd) {
+      toggle.addEventListener("click", () => {
+        // show navbar
+        nav.classList.toggle("show");
+        // change icon
+        toggle.classList.toggle("bx-x");
+        // add padding to body
+        bodypd.classList.toggle("body-pd");
+        // add padding to header
+        headerpd.classList.toggle("body-pd");
+      });
     }
+  };
+
+  showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+
+  /*===== LINK ACTIVE =====*/
+  const linkColor = document.querySelectorAll(".nav_link");
+
+  function colorLink() {
+    if (linkColor) {
+      linkColor.forEach((l) => l.classList.remove("active"));
+      this.classList.add("active");
+
+      // MAKE THE CURRENT TAB VISIBLE VS MAKE IT UNVISIBLE
+
+      // dashboard
+      // notifications
+      // user
+      // bookmark
+
+      document.getElementsByClassName("dashboard")[0].classList.add("invis");
+      document
+        .getElementsByClassName("notifications")[0]
+        .classList.add("invis");
+      document.getElementsByClassName("profile")[0].classList.add("invis");
+      document.getElementsByClassName("bookmark")[0].classList.add("invis");
+
+      document.getElementsByClassName(this.id)[0].classList.remove("invis");
     }
-    
-    showNavbar('header-toggle','nav-bar','body-pd','header')
-    
-    /*===== LINK ACTIVE =====*/
-    const linkColor = document.querySelectorAll('.nav_link')
-    
-    function colorLink(){
-        if(linkColor){
-            linkColor.forEach(l=> l.classList.remove('active'))
-            this.classList.add('active')  
-            
-            // MAKE THE CURRENT TAB VISIBLE VS MAKE IT UNVISIBLE
+  }
+  linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
-            // dashboard
-            // notifications
-            // user
-            // bookmark
-            
-            document.getElementsByClassName("dashboard")[0].classList.add("invis")
-            document.getElementsByClassName("notifications")[0].classList.add("invis")
-            document.getElementsByClassName("profile")[0].classList.add("invis")
-            document.getElementsByClassName("bookmark")[0].classList.add("invis")
+  // Your code to run since DOM is loaded and ready
+});
 
-            document.getElementsByClassName(this.id)[0].classList.remove("invis")
-            
-            
+document.querySelector(
+  ".header_img img"
+).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+  window.localStorage.getItem("name")
+)}&background=random&bold=true`;
 
-
-
-
-        }
-    }
-    linkColor.forEach(l=> l.addEventListener('click', colorLink))
-    
-    // Your code to run since DOM is loaded and ready
-    });
-
-
-    
+document.querySelector(".welcome-message h5").innerHTML =
+  "Welcome " + window.localStorage.getItem("name") + "!";

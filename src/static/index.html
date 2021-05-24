@@ -30,7 +30,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="./index.js"></script>
+    <script defer src="./index.js"></script>
   </head>
 
   <body id="body-pd">
@@ -304,7 +304,7 @@
       </div>
       <div class="welcome-message"><h5>Welcome Person!</h5></div>
       <div class="header_img">
-        <img src="https://i.imgur.com/hczKIze.jpg" alt="" />
+        <img src="" alt="" />
       </div>
     </header>
     <div class="l-navbar" id="nav-bar">
@@ -315,7 +315,12 @@
             <span class="nav_logo-name">Intric</span>
           </a>
           <div class="nav_list">
-            <a href="#" class="nav_link active" id="dashboard">
+            <a
+              href="#"
+              class="nav_link active"
+              id="dashboard"
+              onclick="get_posts()"
+            >
               <i class="bx bx-grid-alt nav_icon"></i>
               <span class="nav_name">Dashboard</span>
             </a>
@@ -327,14 +332,11 @@
               <i class="bx bx-message-square-add nav_icon"></i>
               <span class="nav_name">Create Post</span>
             </a>
-            <!-- <a href="#" class="nav_link" id="bookmark" > <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a>  -->
-            <!-- <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> 
-                        <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>  -->
           </div>
         </div>
         <a href="#" class="nav_link" onclick="logoutt()">
           <i class="bx bx-log-out nav_icon"></i>
-          <span class="nav_name" >SignOut</span>
+          <span class="nav_name">SignOut</span>
         </a>
       </nav>
     </div>
@@ -344,77 +346,7 @@
       <div class="dashboard">
         <h3>Dashboard</h3>
 
-        <div class="card" style="width: 18rem">
-          <img src="./images/1.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="./images/2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="./images/3.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="./images/1.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="./images/2.jpg" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-
-        <div class="card" style="width: 18rem">
-          <img src="./images/1.png" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
+        <div class="posts"></div>
 
         <!-- Extra large modal -->
         <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button> -->
@@ -443,40 +375,8 @@
             ></a>
           </div>
         </div>
-
-        <div class="lower-half">
-          <h3>Your posts</h3>
-
-          <div class="card" style="width: 18rem">
-            <img src="./images/1.png" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a
-                href="#"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target=".bd-example-modal-xl"
-                >Read More</a
-              >
-            </div>
-          </div>
-
-          <div class="card" style="width: 18rem">
-            <img src="./images/2.jpg" class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
+        <h3>Your posts</h3>
+        <div class="lower-half" id="userPosts"></div>
       </div>
       <!-- PERSON PROFILE ENDING -->
 
@@ -668,7 +568,8 @@
     </div>
 
     <!--Container Main end-->
-    <script src="image_loading.js" type="text/javascript"></script>
-    <script src="profile_script.js" type="text/javascript"></script>
+    <script defer src="image_loading.js" type="text/javascript"></script>
+    <script defer src="profile_script.js" type="text/javascript"></script>
+    <script defer src="dashboard.js" type="text/javascript"></script>
   </body>
 </html>
