@@ -92,5 +92,5 @@ login_form.addEventListener("submit", (e) => {
 function save_token(token, name) {
   window.localStorage.setItem("token", token);
   window.localStorage.setItem("name", name);
-  window.location.pathname = "/src/static/index.html";
+  window.location.pathname = "/static/index.html";
 }

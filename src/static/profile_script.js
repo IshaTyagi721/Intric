@@ -44,7 +44,7 @@ function rendertoHTML(name, age, email) {
 
 function logoutt() {
   window.localStorage.removeItem("token");
-  window.location.pathname = "/src/static/Login_pregistration/index.html";
+  window.location.pathname = "/static/Login_pregistration/index.html";
 }
 
 async function rendertoHTML_posts(data) {
