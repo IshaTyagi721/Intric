@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 
 //Database url
-mongoose.connect('mongodb://127.0.0.1:27017/intric', {
+mongoose.connect('mongodb+srv://user:user@cluster0.jduon.mongodb.net/Intric?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex : true
