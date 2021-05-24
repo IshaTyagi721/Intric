@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             
             document.getElementsByClassName("dashboard")[0].classList.add("invis")
             document.getElementsByClassName("notifications")[0].classList.add("invis")
-            document.getElementsByClassName("user")[0].classList.add("invis")
+            document.getElementsByClassName("profile")[0].classList.add("invis")
             document.getElementsByClassName("bookmark")[0].classList.add("invis")
 
             document.getElementsByClassName(this.id)[0].classList.remove("invis")

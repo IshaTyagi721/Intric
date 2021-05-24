@@ -220,6 +220,7 @@ a {
 
 .maxcon{
     width: max-content;
+    display: none;
 }
 
 .upper-half{
@@ -228,4 +229,97 @@ a {
 
 .name{
     padding-top:10px;
+}
+
+.modal{
+    min-width: 100%;
+    z-index: 100;
+}
+
+.modal-backdrop{
+    z-index: 5;
+    width: 100%;
+}
+
+
+.modal-content{
+    width:60rem;
+    left:-11rem;
+}
+
+.post-image{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.header{
+    z-index: 4;
+}
+
+.media-goes-here{
+    padding:2rem;
+}
+
+
+.check-icon {
+    font-size: 17px;
+    color: #c3bfbf;
+    top: 1px;
+    position: relative;
+    margin-left: 3px
+}
+
+.form-check-input {
+    margin-top: 6px;
+    margin-left: -24px !important;
+    cursor: pointer
+}
+
+.form-check-input:focus {
+    box-shadow: none
+}
+
+.icons i {
+    margin-left: 8px
+}
+
+.reply {
+    margin-left: 12px
+}
+
+.reply small {
+    color: #b7b4b4
+}
+
+.reply small:hover {
+    color: green;
+    cursor: pointer
+}
+
+
+.dots {
+    height: 4px;
+    width: 4px;
+    margin-bottom: 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.badge {
+    padding: 7px;
+    padding-right: 9px;
+    padding-left: 16px;
+    box-shadow: 5px 6px 6px 2px #e9ecef
+}
+
+.user-img {
+    margin-top: 4px
+}
+
+.comment{
+    /* border: none;
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    border-radius: 4px; */
+    width:95%;
 }
