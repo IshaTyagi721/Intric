@@ -334,3 +334,7 @@ a {
   font-weight: normal;
   cursor: pointer;
 }
+
+.media-goes-here{
+  text-align: center;
+}
