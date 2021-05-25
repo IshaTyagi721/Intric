@@ -71,10 +71,8 @@ async function rendertoHTML_posts(data) {
               ${itemData.Content}
               </p>
               <a
-                href="#"
-                class="btn btn-primary"
-                data-toggle="modal"
-                data-target=".bd-example-modal-xl"
+              href="#" class="btn btn-primary readpost" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              data-id="${itemData._id}"
                 >Read More</a
               >
             </div>
@@ -83,5 +81,6 @@ async function rendertoHTML_posts(data) {
     document
       .querySelector("#userPosts")
       .insertAdjacentHTML("beforeend", inserter);
+    even_trigger_hack();
   }
 }
